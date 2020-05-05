@@ -9,6 +9,13 @@ Array::Array() {
     m_array = new int[0];
 }
 
+Array::Array(int size, int startValue) {
+    m_size = size;
+    m_array = new int[size];
+    for(int x=0;x<size;x++)
+        m_array[x]=startValue;
+}
+
 Array::Array(int sizeToreserve) {
     m_size = sizeToreserve;
     m_array = new int[sizeToreserve];
@@ -73,3 +80,38 @@ void Array::dropData() {
     for(int x=0;x<m_size;x++)
         m_array[x]=0;
 }
+
+void Array::operator++() {
+    for(int x=0;x<m_size;x++)
+        m_array[x]++;
+}
+
+void Array::operator--() {
+    for(int x=0;x<m_size;x++)
+        m_array[x]--;
+}
+
+std::ostream &operator<<(std::ostream &os, const Array &dt) {
+    for (int x = 0; x < dt.m_size; x++)
+        os << dt.m_array[x] << ",";
+    return os;
+}
+
+void Array::operator+(const Array &other) {
+    int size=(other.m_size<m_size)?other.m_size:m_size;
+    for(int x=0;x<size;x++)
+    {
+        m_array[x]+=other.m_array[x];
+    }
+}
+
+void Array::operator-(const Array &other) {
+    int size=(other.m_size<m_size)?other.m_size:m_size;
+    for(int x=0;x<size;x++)
+    {
+        m_array[x]-=other.m_array[x];
+    }
+}
+
+
+

@@ -6,13 +6,19 @@
 
 int main()
 {
-    Array mysimpleArray(10);
+    Array mysimpleArray(12);
+    Array myohtersimple(10,10);
     mysimpleArray.set(0,200);
-    for(int x =0;x<mysimpleArray.getSize();x++)
-        std::cout<< mysimpleArray.get(x) << ",";
+    std::cout<<mysimpleArray<<std::endl;
+    std::cout<<myohtersimple<<std::endl;
+    ++mysimpleArray;
+    std::cout << mysimpleArray<<std::endl;
+    myohtersimple+mysimpleArray;
+    std::cout<<myohtersimple<<std::endl;
     std::cout<< std::endl;
     mysimpleArray.resize(20);
     mysimpleArray.set(17,40);
+
     for(int x =0;x<mysimpleArray.getSize();x++)
         std::cout<< mysimpleArray.get(x) << ",";
     std::cout<< std::endl;
