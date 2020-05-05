@@ -6,9 +6,20 @@
 
 int main()
 {
-    TemplatedArray<int,6> myArray;
-    myArray.set(5,2);
-    std::cout << myArray.get(2)<<std::endl;
+    Array mysimpleArray(10);
+    mysimpleArray.set(0,200);
+    for(int x =0;x<mysimpleArray.getSize();x++)
+        std::cout<< mysimpleArray.get(x) << ",";
+    std::cout<< std::endl;
+    mysimpleArray.resize(20);
+    mysimpleArray.set(17,40);
+    for(int x =0;x<mysimpleArray.getSize();x++)
+        std::cout<< mysimpleArray.get(x) << ",";
+    std::cout<< std::endl;
+    mysimpleArray.dropData();
+    for(int x =0;x<mysimpleArray.getSize();x++)
+        std::cout<< mysimpleArray.get(x) << ",";
+    std::cout<< std::endl;
 
     std::vector<int> test={1,2,3};
 
