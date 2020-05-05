@@ -6,7 +6,7 @@
 #include "array.h"
 
 Array::Array() {
-
+    m_array = new int[0];
 }
 
 Array::Array(int sizeToreserve) {
