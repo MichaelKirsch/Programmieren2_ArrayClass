@@ -31,11 +31,29 @@ int main()
 
     TemplatedArray<std::vector<int>,6> myArrayOfArrays;
     myArrayOfArrays.set(test,0);
+
+
+
+
     for(auto& vectorspace:myArrayOfArrays.get(0))
         std::cout << vectorspace << std::endl;
 
     myArrayOfArrays.resize(10);
-    myArrayOfArrays.set(test,9);
+    TemplatedArray<Array,10> t;
+
+    t.set(Array(4),3);
+
+    Array g(11);
+    for(int x =0;x<g.getSize()-1;x++)
+        g.set(x,x);
+    for(int x=0;x<t.getSize()-1;x++)
+    {
+        auto& l = t.get(x);
+        l=g;
+        for(int x =0;x<l.getSize()-1;x++)
+            std::cout << l.get(x) ;
+        std::cout << std::endl;
+    }
     for(auto& vectorspace:myArrayOfArrays.get(9))
         std::cout << vectorspace << std::endl;
 }

@@ -7,6 +7,7 @@ template <class T,int N>
 class TemplatedArray {
 public:
     TemplatedArray();
+    TemplatedArray(const TemplatedArray& t);
     ~TemplatedArray();
     void set(T arg, int index);
     T& get(int index);
@@ -78,6 +79,14 @@ T& TemplatedArray<T, N>::getFirst() {
 template<class T, int N>
 T &TemplatedArray<T, N>::getLast() {
     return m_array_of_type[m_size-1];
+}
+
+template<class T, int N>
+TemplatedArray<T, N>::TemplatedArray(const TemplatedArray &t) {
+    m_size = t.m_size;
+    m_array_of_type = new T[t.m_size];
+    for(int x=0;x<t.m_size-1;x++)
+        m_array_of_type[x] = t.m_array_of_type[x];
 }
 
 

@@ -23,7 +23,7 @@ Array::Array(int sizeToreserve) {
 }
 
 Array::~Array() {
-    delete m_array;
+    delete [] m_array;
 }
 
 int Array::get(int index) {
@@ -60,7 +60,7 @@ void Array::resize(int new_size) {
             m_array[x] = buffer[x];
         else
             m_array[x] = 0;
-    delete buffer;
+    delete [] buffer;
     m_size = new_size;
 }
 
@@ -111,6 +111,13 @@ void Array::operator-(const Array &other) {
     {
         m_array[x]-=other.m_array[x];
     }
+}
+
+Array::Array(const Array &other) {
+    delete [] m_array;
+    m_array = new int[other.m_size];
+    for(int x=0;x<other.m_size-1;x++)
+        m_array[x]=other.m_array[x];
 }
 
 

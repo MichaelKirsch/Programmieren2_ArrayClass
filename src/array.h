@@ -6,6 +6,7 @@ public:
     Array(int sizeToreserve);
     Array(int size, int startValue);
     ~Array();
+    Array(const Array& other);
     void operator ++();
     void operator --();
     void operator +(const Array& other);
