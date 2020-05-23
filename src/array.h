@@ -13,6 +13,7 @@ public:
     void operator -=(const Array& other);
     Array operator +(const Array& other);
     Array operator -(const Array& other);
+    void operator =(const Array& other) = delete;
     friend std::ostream & operator<<(std::ostream& os, const Array& dt);
     int get(int index);
     int replace(int index, int to_set);

@@ -17,7 +17,4 @@ int main()
     drei++;
     std::cout << drei.get(1)<<std::endl;
 
-
-
-
 }
