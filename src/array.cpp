@@ -97,24 +97,26 @@ std::ostream &operator<<(std::ostream &os, const Array &dt) {
     return os;
 }
 
-void Array::operator+(const Array &other) {
+Array Array::operator+(const Array &other) {
     int size=(other.m_size<m_size)?other.m_size:m_size;
     for(int x=0;x<size;x++)
     {
         m_array[x]+=other.m_array[x];
     }
+    return Array(*this);
 }
 
-void Array::operator-(const Array &other) {
+Array Array::operator-(const Array &other) {
     int size=(other.m_size<m_size)?other.m_size:m_size;
     for(int x=0;x<size;x++)
     {
         m_array[x]-=other.m_array[x];
     }
+    return Array(*this);
 }
 
 Array::Array(const Array &other) {
-    delete [] m_array;
+    m_size = other.m_size;
     m_array = new int[other.m_size];
     for(int x=0;x<other.m_size-1;x++)
         m_array[x]=other.m_array[x];

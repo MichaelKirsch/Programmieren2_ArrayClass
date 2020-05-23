@@ -9,8 +9,8 @@ public:
     Array(const Array& other);
     void operator ++();
     void operator --();
-    void operator +(const Array& other);
-    void operator -(const Array& other);
+    Array operator +(const Array& other);
+    Array operator -(const Array& other);
     friend std::ostream & operator<<(std::ostream& os, const Array& dt);
     int get(int index);
     int replace(int index, int to_set);

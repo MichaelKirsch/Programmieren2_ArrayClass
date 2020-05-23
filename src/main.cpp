@@ -6,6 +6,16 @@
 
 int main()
 {
+    Array eins(10);
+    eins.dropData();
+    eins.set(1,10);
+    Array zwei(10);
+    zwei.dropData();
+    zwei.set(1,10);
+    Array drei = eins+zwei;
+    std::cout << drei.get(1)<<std::endl;
+
+
     Array mysimpleArray(12);
     Array myohtersimple(10,10);
     mysimpleArray.set(0,200);
