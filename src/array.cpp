@@ -6,7 +6,6 @@
 #include "array.h"
 
 Array::Array() {
-    m_array = new int[0];
 }
 
 Array::Array(int size, int startValue) {
@@ -81,12 +80,12 @@ void Array::dropData() {
         m_array[x]=0;
 }
 
-void Array::operator++() {
+void Array::operator++(int) {
     for(int x=0;x<m_size;x++)
         m_array[x]++;
 }
 
-void Array::operator--() {
+void Array::operator--(int) {
     for(int x=0;x<m_size;x++)
         m_array[x]--;
 }
@@ -98,21 +97,23 @@ std::ostream &operator<<(std::ostream &os, const Array &dt) {
 }
 
 Array Array::operator+(const Array &other) {
+    Array t(*this);
     int size=(other.m_size<m_size)?other.m_size:m_size;
     for(int x=0;x<size;x++)
     {
-        m_array[x]+=other.m_array[x];
+        t.m_array[x]+=other.m_array[x];
     }
-    return Array(*this);
+    return t;
 }
 
 Array Array::operator-(const Array &other) {
+    Array t(*this);
     int size=(other.m_size<m_size)?other.m_size:m_size;
     for(int x=0;x<size;x++)
     {
-        m_array[x]-=other.m_array[x];
+        t.m_array[x]-=other.m_array[x];
     }
-    return Array(*this);
+    return t;
 }
 
 Array::Array(const Array &other) {
@@ -120,6 +121,22 @@ Array::Array(const Array &other) {
     m_array = new int[other.m_size];
     for(int x=0;x<other.m_size-1;x++)
         m_array[x]=other.m_array[x];
+}
+
+void Array::operator+=(const Array &other) {
+    int size=(other.m_size<m_size)?other.m_size:m_size;
+    for(int x=0;x<size;x++)
+    {
+        m_array[x]+=other.m_array[x];
+    }
+}
+
+void Array::operator-=(const Array &other) {
+    int size=(other.m_size<m_size)?other.m_size:m_size;
+    for(int x=0;x<size;x++)
+    {
+        m_array[x]+=other.m_array[x];
+    }
 }
 
 

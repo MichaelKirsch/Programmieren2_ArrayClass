@@ -7,8 +7,10 @@ public:
     Array(int size, int startValue);
     ~Array();
     Array(const Array& other);
-    void operator ++();
-    void operator --();
+    void operator ++(int);
+    void operator --(int);
+    void operator +=(const Array& other);
+    void operator -=(const Array& other);
     Array operator +(const Array& other);
     Array operator -(const Array& other);
     friend std::ostream & operator<<(std::ostream& os, const Array& dt);
